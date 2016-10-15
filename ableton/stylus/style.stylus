@@ -1,0 +1,725 @@
+// Setting fonts and variables and such
+@import url(https://fonts.googleapis.com/css?family=Lato:400,600);
+$listBack = url('https://cdn1.iconfinder.com/data/icons/hawcons/32/699087-icon-95-folder-256.png') no-repeat center;
+$packBack = url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698989-icon-141-box-filled-256.png') no-repeat center;
+$userBack = url('https://cdn4.iconfinder.com/data/icons/mayssam/512/user-256.png') no-repeat center;
+$currentBack = url('https://cdn1.iconfinder.com/data/icons/hawcons/32/699077-icon-86-document-list-256.png') no-repeat center;
+$addBack = url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698950-icon-105-folder-add-256.png') no-repeat center;
+
+// Page Styling
+* {transition: 0.4s ease;}
+body {background-color: #5CB;}
+
+.rela-block
+    display block
+    position relative
+    overflow hidden
+
+.positron
+    height 100%
+    position absolute
+    
+.floated
+    float left
+    display inline-block
+    position relative
+    height 100%
+    
+.ableton-container
+    height 840px
+    width 1300px
+    margin 32px auto 0
+    background-color #282828
+    border 2px solid black
+    color #AAA
+    font-family "Lato"
+    font-size 13px
+    font-weight 400
+    
+.top-bar
+    height 55px
+    background-color #282828
+    
+.project-container
+    position absolute
+    height 22px
+    width 175px
+    left 16px
+    top 57%
+    transform translateY(-50%)
+    
+.mac-buttons
+.project-name
+    display inline-block
+    position relative
+    overflow hidden
+    margin-right 8px
+    
+.dot
+    display inline-block
+    position relative
+    height 10px
+    width 10px
+    margin 0 2px
+    border-radius 100%
+    &.green
+        background-color #64FC6F
+    &.yellow
+        background-color #F6C104
+    &.red
+        background-color #F95100
+        
+.session-controls-container
+    position absolute
+    height 22px
+    width 175px
+    left 275px
+    top 50%
+    transform translateY(-50%)
+    
+.sess-butt
+    transition 0s
+    cursor default
+    
+.session-play-button
+    position absolute
+    top 50%
+    transform translateY(-50%)
+    height 0
+    width 0
+    border-top 7px solid transparent
+    border-bottom 8px solid transparent
+    border-right 0px solid transparent
+    border-left 14px solid #666
+    transition 0s
+    cursor default
+    &.clicked
+        border-left-color #64FC6F
+    
+.session-stop-button
+    position absolute
+    top 50%
+    left 40px
+    transform translateY(-50%)
+    height 14px
+    width 14px
+    background-color #666
+    transition 0s
+    cursor default
+    &:active
+        background-color #F95100
+        
+.arrangement-record-button
+    position absolute
+    top 50%
+    left 80px
+    transform translateY(-50%)
+    height 15px
+    width 15px
+    border-radius 100%
+    background-color #666
+    &.clicked
+        background-color #F95100
+    
+.MIDI-arrangement-overdub
+    position absolute
+    top 50%
+    left 118px
+    transform translateY(-50%)
+    height 16px
+    width 16px
+    &::before
+    &::after
+        content ""
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        width 100%
+        height 3px
+        background-color #666
+    &::after
+        transform translate(-50%, -50%) rotate(90deg)
+        top 50%
+    &.clicked
+        &::before
+        &::after
+            background-color #F6C104
+        
+.middle-section
+    height 560px
+    
+.middle-side-nav
+    width 275px
+    background-color #3A3A3A
+    transition 0.3s ease
+    left 0
+    &.collapsed
+        left -242px
+
+.side-search-container
+    position absolute
+    top 0
+    left 0
+    right 0
+    height 32px
+    overflow hidden
+    
+.side-bar-arrow
+    position absolute
+    height 33px
+    top 55px
+    left 0
+    width 33px
+    background-color #1E1E1E
+    overflow hidden
+    transition 0.3s ease
+    z-index 10
+    &.collapsed 
+        height 560px
+        & .arrow
+            transform rotate(90deg)
+        
+.arrow
+    position absolute
+    top 0
+    height 33px
+    left 0
+    right 0
+    background-color #1E1E1E
+    &::before
+    &::after
+        content ""
+        position absolute
+        height 3px
+        width 13px
+        background-color #555
+    &::before
+        transform rotate(40deg)
+        top 12px
+        left 10px
+    &::after
+        transform rotate(-40deg)
+        top 19px
+        left 10px
+    
+.search-container
+    position absolute
+    height 26px
+    width 232px
+    bottom 0
+    right 5px
+    &::before
+        content ""
+        position absolute
+        top 0
+        left 0
+        bottom 0
+        width 24px
+        background url('https://cdn0.iconfinder.com/data/icons/feather/96/magnifying-glass-128.png') no-repeat center
+        background-size 75%
+        z-index 20
+    
+.side-nav-search
+    position absolute
+    height 24px
+    width 206px
+    padding-left 24px
+    background-color #A5A5A5
+    color #383838
+    outline none
+    border none
+    &::-webkit-input-placeholder
+        color #666
+    &::-moz-input-placeholder 
+        color #666
+    &:-moz-input-placeholder
+        color #666
+    &::-ms-input-placeholder 
+        color #666
+    
+.side-nav-selector
+    position absolute
+    top 37px
+    bottom 37px
+    color #888
+    overflow hidden
+    & ul
+        transition 0.1s ease
+    &.options
+        left 0
+        right 50%
+        background-color #3A3A3A
+        border-right 1px solid #555
+        & li
+            &:hover
+                background-color #476b6e
+                color #AAA
+                & .folder-link
+                    color #AAA
+            &.active
+                background-color #476b6e
+                color #AAA
+                & .folder-link
+                    color #AAA
+    &.results
+        right 0
+        left 50%
+        background-color #404040
+        & li
+            padding-left 18%
+            width 82%
+            &::before
+                background url('https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-02-256.png') no-repeat center
+                background-size 32% !important
+                backface-visibility hidden
+                left 1%
+                transition 0.3s ease
+            &:hover
+                background-color #475f61
+                color #AAA
+            &.dropped::before
+                transform rotate(90deg)
+    & .first-side-list
+        padding-bottom 15px
+        border-bottom 1px solid #555
+    & .second-side-list
+        padding-top 15px
+    & li
+        display block
+        position relative
+        height 35px
+        line-height 35px
+        padding-left 28%
+        width 72%
+        overflow hidden
+        cursor default        
+        transition 0.1s ease
+        & .folder-link
+            position absolute
+            height 100%
+            padding-left 40%
+            left 0
+            right 0
+            color #888
+            text-decoration none
+            cursor default
+            transition 0.2s ease
+        &::before
+            content ""
+            position absolute
+            top 0
+            bottom 0
+            left 5%
+            width 20%
+            backface-visibility hidden
+            background $listBack
+            background-size 18px 18px !important
+        &.packs-li::before
+            background $packBack
+        &.user-li::before
+            background $userBack
+        &.current-li::before
+            background $currentBack
+        &.add-li::before
+            background $addBack
+    
+.side-nav-selector
+    &.results ul
+        display none
+        &.displayed
+            display block
+            
+.side-sample-preview
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    height 32px
+    overflow hidden
+    
+.wiggly-thing
+    display inline-block
+    position relative
+    height 32px
+    width 25px
+    padding-left 7px
+    background #222
+    font-size 28px
+    line-height 28px
+    color #777
+    &::before
+        content"~"
+        position absolute
+        top 5px
+    &:after
+        content"~"
+        position absolute
+        top -5px
+        left 7px    
+    
+.sample-waveform-container
+    display inline-block
+    position relative
+    vertical-align top
+    height 26px
+    width 232px
+    margin 1px 0 0 3px
+    
+.sample-waveform
+    position absolute
+    left 0
+    top 0
+    bottom 0
+    width 206px
+    background-color #868686
+    &::before
+        content ""
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+        background url('https://static.zwischendrin.com/products/76c3890a13e54a90620a03f84e8a8a11/waveform.png') no-repeat top
+        background-size 206px 55px
+    
+.headphone-button
+    position absolute
+    top 0
+    bottom 0
+    right 0
+    width 26px
+    background #B2B2B2
+    &::before
+        content ""
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        height 16px
+        width 16px
+        background url('https://cdn1.iconfinder.com/data/icons/mimiGlyphs/16/headphones.png') no-repeat center
+    
+.headphone-button
+    display block
+    
+.middle-main-section
+    width 978px
+    padding-right 10px
+    background-color #3A3A3A
+    transition 0.3s ease
+    border-left 2px solid #2B2B2B
+    left 275px
+    &.extended
+        width 1230px
+        left 33px
+        & .main-top-section
+            width 1213px
+        & .main-bottom-section
+            width 1213px
+
+.main-top-section
+    display flex
+    position relative
+    margin-top 10px
+    width 970px
+    transition 0.3s ease
+    
+.mid-top-track
+    position relative
+    flex 1 1 0
+    border-right 1px solid #555
+    & .track-header
+        display block
+        position relative
+        padding-left 12%
+        height 30px
+        line-height 25px
+        width 100%
+        box-sizing border-box
+        text-align left
+    & .track-clip
+        display block
+        position relative
+        height 22px
+        width calc(100% + 1px)
+        padding-left 25%
+        text-align left
+        line-height 20px
+        font-weight 600
+        box-sizing border-box
+        border-left 1px solid #333
+        border-top 1px solid #333
+        background-color #555
+        &:before
+            content ""
+            position absolute
+            height 22px
+            width 20px
+            left 0
+            top 0
+        &::after
+            content ""
+            position absolute
+            height 9px
+            width 9px
+            left 5px
+            top 6px
+            background-color #444
+        &.filled
+            color black
+            &::before
+                background-color rgba(0,0,0,0.4)
+            &::after
+                height 0
+                width 0
+                top 5px
+                border-top 5px solid transparent
+                border-bottom 5px solid transparent
+                border-left 9px solid #D3D3D3
+                background-color transparent
+            &.playing
+                &::before
+                    background-color rgba(0,0,0,0.9)
+                &::after
+                    border-left-color #64FC6F
+    &.track-1 
+        & .track-clip
+            border-left none
+            &.filled
+                background-color #00BEAF
+    &.track-2 .track-clip.filled
+        background-color #FFEE9D
+    &.track-3 .track-clip.filled
+        background-color #C0FF00
+    &.track-4 .track-clip.filled
+        background-color #4EFFE6
+    &.track-5 .track-clip.filled
+        background-color #FAF1EF
+    &.track-6 .track-clip.filled
+        background-color #C7AEE8
+    &.track-7 .track-clip.filled
+        background-color #B8F4FF
+    &.track-8 .track-clip.filled
+        background-color #FF18C1
+    &.track-9 .track-clip.filled
+        background-color #D6EF00
+    &.master-track .master-track-clip
+        color #222
+        background-color #444
+        text-align right
+        padding-right 12%
+        transition 0s
+        &::after
+                height 0
+                width 0
+                top 5px
+                border-top 5px solid transparent
+                border-bottom 5px solid transparent
+                border-left 9px solid #555
+                background-color transparent
+        &:active
+            background-color #59FFFF
+            &::after
+                border-left-color #111
+        
+.main-bottom-section
+    display flex
+    position relative
+    margin-top 44px
+    height 300px
+    width 970px
+    transition 0.3s ease
+    background-color #555
+    & p
+        position absolute
+        top 50px
+        left 50px
+        right 50px
+        font-size 30px
+        letter-spacing 4px
+        text-transform uppercase
+        line-height 40px
+                
+.middle-right-bar
+    width 35px
+    background-color #2F2F2F
+    right 0
+    
+.session-arrangement-selector
+    position absolute
+    top 0
+    left 0
+    right 0
+    height 72px
+    
+.s-a-button
+    height 31px
+    width 35px
+    background-color #2F2F2F
+    padding-top 5px
+    & .bar
+        height 3px
+        width 18px
+        background-color #888
+        margin 4px auto
+    &.session
+        transform rotate(90deg)
+    &.active
+        background-color #272727
+        & .bar
+            background-color #F6C104
+        
+.track-options-selectors
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    height 205px
+
+.option-button
+    height 26px
+    width 26px
+    margin 6px auto
+    background-color #1E1E1E
+    text-align center
+    line-height 26px
+    font-weight 600
+    border-radius 100%
+    cursor default
+    transition 0.1s ease
+    &.active
+        background-color #F6C104
+        color #1E1E1E
+    &.top-connected-button
+        margin 6px auto 0
+        border-top-left-radius 100%
+        border-top-right-radius 100%
+        border-bottom-right-radius 0
+        border-bottom-left-radius 0
+    &.bottom-connected-button
+        margin 0 auto 6px
+        border-top-left-radius 0
+        border-top-right-radius 0
+        border-bottom-right-radius 100%
+        border-bottom-left-radius 100%
+    
+.bottom-section
+    height 225px
+    
+.bottom-effect
+    width 32px
+    &::before
+        content "Effect"
+        position absolute
+        width 150px
+        height 32px
+        transform rotate(-90deg) translate(45%, -185%)
+        bottom 0
+        line-height 32px
+    &.effect1
+        background-color #3A3A3A
+        &::before
+            content "EQ Eight"
+    &.effect2
+        background-color #474747
+        &::before
+            content "Glue Compressor"
+    
+.effect-levels
+    position absolute
+    top 10px
+    left 50%
+    transform translateX(-50%)
+    width 14px
+    height 95px
+
+&.first-effect-level-bar.on
+        animation musicBounce 0.9375s ease infinite
+        
+&.second-effect-level-bar.on
+        animation musicBounce2 0.9375s ease infinite
+    
+.effect-level-bar
+    position absolute
+    bottom 0
+    height 0
+    width 3px
+    background #31f482
+    &.left-bar
+        left 3px
+    &.right-bar
+        right 3px
+        animation-delay 0.04s !important
+        
+@keyframes musicBounce {
+    0% {height: 0px;}
+    13.5% {height: 48%;}
+    50% {height: 0px;}
+    63.5% {height: 60%;}
+    100% {height: 0px;}
+}
+
+@keyframes musicBounce2 {
+    0% {height: 0px;}
+    12.5% {height: 70%;}
+    50% {height: 0px;}
+    62.5% {height: 84%;}
+    100% {height: 0px;}
+}
+            
+.bottom-MIDI-editor
+    width 1236px
+
+.bottom-meter-bar
+    height 50px
+    box-sizing border-box
+    border-bottom 1px solid #AAA
+    background-color #EBEBEB
+
+.bottom-MIDI-bar
+    display block
+    position relative
+    height 175px
+    background-color #F5F5F5
+    
+.meter-lines-background
+    display flex
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    & .meter-divide
+        flex 1 1 0
+        position relative
+        box-sizing border-box
+        border-right 1px solid #AAA
+        transition 0s
+        &:last-child
+            border-right 0px
+        &.grey
+            background-color #EBEBEB
+            &::before
+                background-color #D6D6D6
+        &::before
+            content ""
+            position absolute
+            left 50%
+            top 0
+            bottom 0
+            width 1px
+            background-color #DFDFDF
+        &::after
+            position absolute
+            top -5px
+            right -7px
+            border-left 7px solid transparent
+            border-right 7px solid transparent
+            border-top 8px solid #F52
+            border-radius 3px
+            z-index 20
+        &.has-cursor
+            border-right 1px solid #444
+            &::after
+                content ""

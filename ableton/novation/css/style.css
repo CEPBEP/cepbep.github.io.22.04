@@ -1,0 +1,109 @@
+/***************************
+****************************
+Use your keyboard keys to play
+
+QWERTYASDF
+
+****************************
+***************************/
+* {
+   -moz-box-sizing:border-box;
+   -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+body {
+ /* background-color: rgba(255, 235, 59, 0.55);*/
+  color:#bbb;
+  font-family:Arial,sans-serif;
+  font-size:16px;
+  text-align:center;
+}
+
+body h4 {
+  color:#61636D;
+}
+
+#lnpad {
+ /* background-color: rgba(255, 235, 59, 0.55);*/
+  float: left;
+  height: 455px;
+  width: 505px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -207px;
+  margin-left: -252px;
+}
+.circle_wrap {
+  position: relative;
+  margin-top: 35px;
+}
+.circle_wrap span {
+  position: absolute;
+  right: 8px;
+  top: 15px;
+  font-size: 13px;
+  color: #7D7E88;
+}
+.novation_logo {
+  position: absolute;
+  bottom: 7px;
+  width: 110px;
+  left: 22px;
+}
+.right_cont {
+  width: 70px;
+  height: 500px;
+  position: absolute;
+  right: 11px;
+}
+.circle {
+  border-radius: 50%;
+	width: 45px;
+	height: 45px;
+  background: #7D7E88;
+}
+.lunchpad_logo {
+  position: absolute;
+  bottom: -3px;
+  width: 200px;
+  left: 212px;
+}
+.osaka_logo {
+  position: absolute;
+  bottom: -3px;
+  top:0px;
+  width: 200px;
+  left: 212px;
+}
+#pads {
+  position:absolute;
+  width:500px;
+  height: 470px;
+}
+.module {
+    background-color: rgba(255, 235, 59, 0.55);
+  -moz-border-radius:.5em;
+  -webkit-border-radius:.5em;
+  -o-border-radius:.5em;
+  border-radius:.5em;
+  padding:1.25em .9375em;
+}
+.pad {
+  background-color:#bbb;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -o-border-radius:5px;
+  border-radius:5px;
+  cursor:pointer;
+  float:left;
+  width: 70px;
+  height: 70px;
+  margin:.3125em;
+}
+.osaka_logo {
+  position:absolute;
+  width:100px;
+  left:10px;
+}
